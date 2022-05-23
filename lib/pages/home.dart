@@ -30,7 +30,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
     EducatorModel(name: 'Caroline S', courseCount:  "10 Course", img: "person_3.jpg"),
     EducatorModel(name: 'M Andrea', courseCount:  "15 Course", img: "person_4.jpg"),
   ];
-  int _currentIndex = 0;
 
   @override
   void initState() {
@@ -47,11 +46,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
 
   void _handleTabControllerTick() {
     setState(() {
-      _currentIndex = _tabController.index;
     });
   }
 
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CustomColors.primaryDark,
@@ -59,174 +58,172 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
         padding: const EdgeInsets.only(left: 24.0, right: 24.0, top: 48.0),
         child: Column(
           children: <Widget>[
-            Container(
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text("Hello Satwik", style: CustomText.titleXLarge(context, 1),),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text("What are you learning today?", style: CustomText.bodyLarge(context, 2),),
-                          ],
-                        ),
+            Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("Hello Satwik", style: CustomText.titleXLarge(context, 1),),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Text("What are you learning today?", style: CustomText.bodyLarge(context, 2),),
+                        ],
                       ),
-
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          color: CustomColors.accent,
-                          borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                          border: Border.all(color: CustomColors.white, width: 2.0),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(30.0),
-                          child: Image.asset(
-                          "assets/images/person_1.jpg",
-                          fit: BoxFit.cover,
-                        ),
-                        ),
-                      ),
-
-                    ],
-                  ),
-
-                  SizedBox(
-                    height: 32.0,
-                  ),
-
-                  Container(
-                    width: double.infinity,
-                    height: 56.0,
-                    padding: EdgeInsets.all(1.0),
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: <Color>[
-                            CustomColors.accent.withOpacity(0.5),
-                            CustomColors.primaryDark
-                          ],
-                        ),
-                      borderRadius: BorderRadius.all(Radius.circular(16.0))
                     ),
-                    child: Container(
-                      width: double.infinity,
-                      height: 50.0,
+
+                    Container(
+                      width: 60,
+                      height: 60,
                       decoration: BoxDecoration(
-                          color: CustomColors.primaryLight,
-                          borderRadius: BorderRadius.all(Radius.circular(16.0))
+                        color: CustomColors.accent,
+                        borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+                        border: Border.all(color: CustomColors.white, width: 2.0),
                       ),
-                      child: TextFormField(
-                        onTap: (){},
-                        readOnly: false,
-                        cursorWidth: 1,
-                        autocorrect: true,
-                        autofocus: false,
-                        style: TextStyle(color: CustomColors.accent),
-                        keyboardType: TextInputType.text,
-                        textInputAction: TextInputAction.next,
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        textAlignVertical: TextAlignVertical.center,
-                        decoration: InputDecoration(
-                          suffixIcon: const Icon(
-                            Icons.search,
-                            color: Colors.grey,
-                          ),
-                          labelStyle: TextStyle(fontSize: 12, color: Colors.black54),
-                          border: InputBorder.none,
-                          hintStyle: TextStyle(color: CustomColors.accent),
-                          hintText: 'Search Course, Educators...',
-                          focusedBorder: InputBorder.none,
-                          enabledBorder: InputBorder.none,
-                          errorBorder: InputBorder.none,
-                          disabledBorder: InputBorder.none,
-                          errorStyle: TextStyle(
-                            fontSize: 9,
-                            color: Colors.redAccent.withOpacity(0.7),
-                          ),
-                          contentPadding: EdgeInsets.all(16.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(30.0),
+                        child: Image.asset(
+                        "assets/images/person_1.jpg",
+                        fit: BoxFit.cover,
+                      ),
+                      ),
+                    ),
+
+                  ],
+                ),
+
+                const SizedBox(
+                  height: 32.0,
+                ),
+
+                Container(
+                  width: double.infinity,
+                  height: 56.0,
+                  padding: const EdgeInsets.all(1.0),
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: <Color>[
+                          CustomColors.accent.withOpacity(0.5),
+                          CustomColors.primaryDark
+                        ],
+                      ),
+                    borderRadius: const BorderRadius.all(Radius.circular(16.0))
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    height: 50.0,
+                    decoration: const BoxDecoration(
+                        color: CustomColors.primaryLight,
+                        borderRadius: BorderRadius.all(Radius.circular(16.0))
+                    ),
+                    child: TextFormField(
+                      onTap: (){},
+                      readOnly: false,
+                      cursorWidth: 1,
+                      autocorrect: true,
+                      autofocus: false,
+                      style: const TextStyle(color: CustomColors.accent),
+                      keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.next,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      textAlignVertical: TextAlignVertical.center,
+                      decoration: InputDecoration(
+                        suffixIcon: const Icon(
+                          Icons.search,
+                          color: Colors.grey,
                         ),
+                        labelStyle: const TextStyle(fontSize: 12, color: Colors.black54),
+                        border: InputBorder.none,
+                        hintStyle: const TextStyle(color: CustomColors.accent),
+                        hintText: 'Search Course, Educators...',
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        errorBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        errorStyle: TextStyle(
+                          fontSize: 9,
+                          color: Colors.redAccent.withOpacity(0.7),
+                        ),
+                        contentPadding: const EdgeInsets.all(16.0),
                       ),
                     ),
                   ),
+                ),
 
-                  SizedBox(
-                    height: 48.0,
-                  ),
+                const SizedBox(
+                  height: 48.0,
+                ),
 
-                  Container(
-                    width: double.infinity,
+                SizedBox(
+                  width: double.infinity,
 
-                    child: TabBar(
-                      indicator: UnderlineTabIndicator(
-                        borderSide: BorderSide(color: CustomColors.white, width: 4.0),
-                        insets: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 55.0),
-                      ),
-                      labelColor: CustomColors.white,
-                      labelStyle: TextStyle(fontSize: 18),
-                      controller: _tabController,
-                      unselectedLabelColor: CustomColors.accent,
-                      isScrollable: true,
-                      tabs: tabs.map((e) => Tab(text: e)).toList(),
+                  child: TabBar(
+                    indicator: const UnderlineTabIndicator(
+                      borderSide: BorderSide(color: CustomColors.white, width: 4.0),
+                      insets: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 55.0),
                     ),
+                    labelColor: CustomColors.white,
+                    labelStyle: const TextStyle(fontSize: 18),
+                    controller: _tabController,
+                    unselectedLabelColor: CustomColors.accent,
+                    isScrollable: true,
+                    tabs: tabs.map((e) => Tab(text: e)).toList(),
                   ),
+                ),
 
-                  SizedBox(
-                    height: 16.0,
-                  ),
+                const SizedBox(
+                  height: 16.0,
+                ),
 
-                  Container(
+                SizedBox(
+                  width: double.infinity,
+                    height: 190,
+                    child: ListView.builder(
+                        physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                        padding: EdgeInsets.zero,
+                        itemCount: courseList.length,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          return CourseCard(course: courseList[index],);
+                        })
+                ),
+
+                const SizedBox(
+                  height: 32.0,
+                ),
+
+                Container(
+                  width: double.infinity,
+                    padding: const EdgeInsets.only(left: 12.0),
+                  child: const Text("Top Educators", style: TextStyle(fontSize: 18, color: CustomColors.white)),
+                ),
+
+                const SizedBox(
+                  height: 18.0,
+                ),
+
+                SizedBox(
                     width: double.infinity,
-                      height: 190,
-                      child: ListView.builder(
-                          physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-                          padding: EdgeInsets.zero,
-                          itemCount: courseList.length,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (BuildContext context, int index) {
-                            return CourseCard(course: courseList[index],);
-                          })
-                  ),
+                    height: 180,
+                    child: ListView.builder(
+                        physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                        padding: EdgeInsets.zero,
+                        itemCount: educatorList.length,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          return EducatorCard(educator: educatorList[index],);
+                        })
+                )
 
-                  SizedBox(
-                    height: 32.0,
-                  ),
-
-                  Container(
-                    width: double.infinity,
-                      padding: EdgeInsets.only(left: 12.0),
-                    child: Text("Top Educators", style: TextStyle(fontSize: 18, color: CustomColors.white)),
-                  ),
-
-                  SizedBox(
-                    height: 18.0,
-                  ),
-
-                  Container(
-                      width: double.infinity,
-                      height: 180,
-                      child: ListView.builder(
-                          physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-                          padding: EdgeInsets.zero,
-                          itemCount: educatorList.length,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (BuildContext context, int index) {
-                            return EducatorCard(educator: educatorList[index],);
-                          })
-                  )
-
-                ],
-              ),
+              ],
             )
           ],
         ),

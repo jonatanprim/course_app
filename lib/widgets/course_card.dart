@@ -3,9 +3,9 @@ import 'package:course_app/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class CourseCard extends StatefulWidget {
-  CourseModel course;
+  final CourseModel course;
 
-  CourseCard({
+  const CourseCard({
     Key? key,
     required this.course,
   }) : super(key: key);
@@ -20,10 +20,10 @@ class _CourseCardState extends State<CourseCard> {
     return Container(
       width: 280,
       height: 190,
-      margin: EdgeInsets.only(right: 12.0),
-      padding: EdgeInsets.all(1.0),
+      margin: const EdgeInsets.only(right: 12.0),
+      padding: const EdgeInsets.all(1.0),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(16.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(16.0)),
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -34,16 +34,16 @@ class _CourseCardState extends State<CourseCard> {
         ),
       ),
       child: Container(
-        padding: EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12.0),
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(16.0)),
           color: CustomColors.primaryLight
         ),
         child: Column(
           children: <Widget>[
-            Container(
+            SizedBox(
               height: 105,
               width: double.infinity,
               child: ClipRRect(
@@ -55,22 +55,22 @@ class _CourseCardState extends State<CourseCard> {
               ),
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 12.0,
             ),
 
-            Container(
+            SizedBox(
               width: double.infinity,
-              child: Text(widget.course.title.toString(), style: TextStyle(color: CustomColors.white, fontSize: 18),),
+              child: Text(widget.course.title.toString(), style: const TextStyle(color: CustomColors.white, fontSize: 18),),
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 8.0,
             ),
 
-            Container(
+            SizedBox(
               width: double.infinity,
-              child: Text(widget.course.educator.toString(), style: TextStyle(color: CustomColors.accent, fontSize: 14),),
+              child: Text(widget.course.educator.toString(), style: const TextStyle(color: CustomColors.accent, fontSize: 14),),
             ),
 
           ],
