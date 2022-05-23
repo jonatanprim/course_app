@@ -1,3 +1,4 @@
+import 'package:course_app/widgets/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -10,6 +11,6 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return bott
+    return const BottomNavigation();
   }
 }

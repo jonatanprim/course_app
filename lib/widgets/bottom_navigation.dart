@@ -1,4 +1,5 @@
 import 'package:course_app/pages/home.dart';
+import 'package:course_app/utils/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -15,10 +16,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
   }
 
   final List<Widget> _child = [
-    Home(),
-    Home(),
-    Home(),
-    Home(),
+    const Home(),
+    const Home(),
+    const Home(),
+    const Home(),
   ];
   var currentIndex = 0;
 
@@ -28,34 +29,36 @@ class _BottomNavigationState extends State<BottomNavigation> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _child[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: true,
         selectedFontSize: 14.0,
-        backgroundColor: Colors.blue,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.black45,
+        backgroundColor: CustomColors.primaryDark,
+        selectedItemColor: CustomColors.white,
+        unselectedItemColor: CustomColors.accent,
         showSelectedLabels: true,
         onTap: onTappedBar,
+        type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
-        items: [
+        items: const [
           BottomNavigationBarItem(
-              icon: new Icon(Icons.home_filled),
+              icon: Icon(Icons.home_filled),
               label: 'Home',
               backgroundColor: Colors.blue),
           BottomNavigationBarItem(
               icon: Icon(Icons.dashboard),
-              label: 'Pengiriman',
+              label: 'Categories',
               backgroundColor: Colors.blue),
           BottomNavigationBarItem(
               icon: Icon(Icons.bookmark),
-              label: 'Pengembalian',
+              label: 'Saved',
               backgroundColor: Colors.blue),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings),
-              label: 'Tiket',
+              label: 'Settings',
               backgroundColor: Colors.blue),
         ],
       ),
